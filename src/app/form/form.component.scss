@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .form-container {
+    display: flex;
+    
+    margin: 0 auto;
+   
+  }
+  
+  .sidebar {
+    width: 27%;
+    background-color: #f2f9ff;
+    padding: 20px;
+    padding-top: 50px;
+  }
+  
+  .steps {
+    list-style-type: none;
+    padding: 0;
+    max-width: 270px;
+    margin: 0 auto;
+  }
+  
+  .steps li {
+    padding: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+ color: #818181d0;
+    transition: background-color 0.3s;
+    font-size: 18px;
+  }
+  
+  .steps li.active {
+  font-weight: 700;
+    color: rgb(0, 0, 0);
+  }
+  
+  .steps li:hover {
+    
+  }
+  
+  .form-content {
+    flex-grow: 1;
+    padding: 70px;
+    position: relative; // To position navigation at the bottom
+  }
+  
+  .form-navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; // Space between form content and navigation
+    position: absolute;
+    bottom: 20px; // Sticks buttons to the bottom with padding
+    right: 0;
+  }
+  
+  .form-navigation button {
+    padding: 10px 20px;
+    margin-left: 10px; // Add space between buttons
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-navigation button:disabled {
+    background-color: #ccc;
+  }
+  
+  .form-navigation button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // Two columns
+    grid-gap: 20px; // Space between columns and rows
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input, select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      input[type="tel"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 5px; // Adds spacing between the input and checkbox
+      }
+    
+      .checkbox-row {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+    
+        input[type="checkbox"] {
+          margin-top: 15px;
+          margin-right: 5px;
+        }
+      }
+
+    /* Make the full-row fields span both columns */
+    .form-row-full {
+      grid-column: span 2;
+    }
+  }
+}
+  form label {
+    margin-bottom: 5px;
+  }
+  
+  form input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-navigation {
+    margin-top: 20px;
+  }
+  
+  .form-navigation button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-navigation button:disabled {
+    background-color: #ccc;
+  }
+  
+  .form-navigation button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .form-content {
+      width: 100%;
+    }
+  }
+  

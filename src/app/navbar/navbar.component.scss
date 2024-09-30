@@ -1,0 +1,140 @@
+.navbar {
+  padding: 22px 20px 0;
+  position: relative;
+  z-index: 100;
+  .container{
+    max-width: 1450px;
+    width: 100%;
+    margin: 0 auto;
+    .inner{
+      max-width: 1450px;
+      width: 100%;
+      display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(50, 115, 158);
+  padding-bottom: 20px;
+    
+  .navbar-brand {
+    color: #264e99;
+    font-weight: bold;
+    .navbar-logo {
+      height: 100px; /* Adjust the height of the logo */
+      margin-right: 10px; /* Space between the logo and the text */
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    list-style-type: none; 
+    
+
+    .nav-item {
+    
+      .nav-link {
+        // padding: 15px 30px;
+        border: 1px solid #ffffff;
+        // border-radius: 50px;
+        //   color: #264e99;
+        list-style-type: none;  
+        text-decoration: none;
+        height: 47px;
+        color: #ffffff;
+        background-color: #ffffff00;
+        line-height: 47px;
+        font-size: 14px;
+        display: inline-block;
+        border-radius: 30px;
+        font-weight: 700;
+        padding: 0 15px;
+        font-family: "Poppins";
+        transition: .5s;
+        &:hover {
+          background-color: #2d9bcc;
+          color: #ffffff;
+          border: 1px solid #2d9bcc;
+        }
+      }
+    } 
+  }
+}
+.bottom{
+  ul{
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  li{
+    font-family: "Poppins";
+  list-style: none;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  a{
+    color: #ffffff;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  }
+  }
+}
+}
+}
+}
+
+// main header
+
+.apply{
+display: block;
+.header{    
+  margin-top: -213px;
+  width: 100%;
+  position: relative;
+  background-image: url(/assets/nasa-Q1p7bh3SHj8-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+&::before{
+  position: absolute;
+  content: "";
+  display: block;
+  background-image: linear-gradient(to right, rgb(13 17 30) 29%, rgb(45 155 204 / 34%));
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+}
+.inner{
+  max-width: 1450px;
+    width: 100%;
+
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 213px 0px;
+    z-index: 5;
+    .main{
+      padding-top: 90px;
+      h1{
+        font-family: "Poppins";
+        color: #fff;
+    font-size: 48px;
+    line-height: 44px;
+    font-weight: 900;
+    margin: 0;
+    margin-bottom: 20px;
+      }
+      p{
+        font-family: "Lato";
+        font-size: 16px;
+    line-height: 25px;
+    color: #fff;
+
+    margin: 0;
+      }
+    }
+}
+}

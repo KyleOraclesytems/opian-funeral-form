@@ -1,0 +1,128 @@
+<div class="form-container">
+  <aside class="sidebar">
+    <ul class="steps">
+      <li [class.active]="currentStep === 1">Step 1: Personal Info</li>
+      <li [class.active]="currentStep === 2">Step 2: Address</li>
+      <li [class.active]="currentStep === 3">Step 3: Contact Info</li>
+      <li [class.active]="currentStep === 4">Step 4: Payment Info</li>
+      <li [class.active]="currentStep === 5">Step 5: Review Details</li>
+      <li [class.active]="currentStep === 6">Step 6: Submit Documents</li>
+      <li [class.active]="currentStep === 7">Step 7: Confirm Submission</li>
+      <li [class.active]="currentStep === 8">Step 8: Finish</li>
+    </ul>
+  </aside>
+
+  <div class="form-content" [formGroup]="personalInfoForm">
+    <div *ngIf="currentStep === 1">
+      <!-- Step 1 Form Content -->
+      <h2>Step 1: Personal Info</h2>
+      <form>
+        <!-- Title -->
+        <div class="form-row">
+          <label>Title:</label>
+          <select formControlName="title">
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Dr">Dr</option>
+          </select>
+        </div>
+
+        <!-- Account Number (full width) -->
+        <div class="form-row">
+          <label>Account Number:</label>
+          <input type="text" formControlName="accountNumber" readonly />
+        </div>
+
+        <!-- First and Middle Name -->
+        <div class="form-row">
+          <label>First Name:</label>
+          <input type="text" formControlName="firstName" />
+        </div>
+
+        <div class="form-row">
+          <label>Middle Name:</label>
+          <input type="text" formControlName="middleName" />
+        </div>
+
+        <!-- Last Name and Nationality -->
+        <div class="form-row">
+          <label>Last Name:</label>
+          <input type="text" formControlName="lastName" />
+        </div>
+
+        <div class="form-row">
+          <label>Nationality:</label>
+          <input type="text" formControlName="nationality" />
+        </div>
+
+        <!-- Identification Number and Date of Birth -->
+        <div class="form-row">
+          <label>Identification Number:</label>
+          <input type="text" formControlName="idNumber" />
+        </div>
+
+        <div class="form-row">
+          <label>Date of Birth:</label>
+          <input type="date" formControlName="dob" (change)="calculateAge()" />
+        </div>
+
+        <!-- Age and Gender -->
+        <div class="form-row">
+          <label>Age:</label>
+          <input type="number" formControlName="age" readonly />
+        </div>
+
+        <div class="form-row">
+          <label>Gender:</label>
+          <select formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Contact Number, WhatsApp Number, and Email -->
+        <div class="form-row">
+          <label>Contact Number:</label>
+          <input type="tel" formControlName="contactNumber" />
+          <div class="checkbox-row">
+            <input type="checkbox" (change)="toggleWhatsApp()" /> Use as WhatsApp Number
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>WhatsApp Number:</label>
+          <input type="tel" formControlName="whatsappNumber" />
+        </div>
+
+        <div class="form-row form-row-full">
+          <label>Email Address:</label>
+          <input type="email" formControlName="email" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Add similar divs for Steps 2 through 8 -->
+    <div *ngIf="currentStep === 2">
+      <h2>Step 2: Address</h2>
+      <form>
+        <!-- Address form fields -->
+        <div class="form-row">
+          <label>Street Address:</label>
+          <input type="text" />
+        </div>
+        <div class="form-row">
+          <label>City:</label>
+          <input type="text" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Add buttons to navigate between steps -->
+    <div class="form-navigation">
+      <button (click)="previousStep()" [disabled]="currentStep === 1">Previous</button>
+      <button (click)="nextStep()" [disabled]="currentStep === totalSteps">Next</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  :host{
+    display: block; /* Ensure it behaves as a block element */
+    position: relative; /* To position the pseudo-element correctly */
+    background: rgb(255, 255, 255); /* Background color with transparency */
+  
+   
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    overflow: hidden; 
+
+    &::before{
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      // background-image: url('/assets/oracle-hero-slider-03.png');
+      // background-position: bottom;
+      // background-repeat: no-repeat;
+      // background-size: contain;
+      filter: blur(1px); /* Apply the blur effect */
+      z-index: -1; /* Send the pseudo-element behind the content */
+    }
+  }
+.apply{
+  border: 1px solid #2d9bcc;
+  // border-radius: 50px;
+  //   color: #264e99;
+  list-style-type: none;  
+  text-decoration: none;
+  height: 47px;
+  color: #2d9bcc;
+  background-color: #ffffff00;
+  line-height: 47px;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 700;
+  padding: 0 25px;
+  font-family: "Poppins";
+  transition: .5s;
+  margin: 0 30px;
+  &:hover {
+    background-color: #2d9bcc;
+    color: #ffffff;
+    border: 1px solid #2d9bcc;
+  }
+}
+  .container {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 80px 30px;
+  
+  }
+  .info{
+    margin: auto 0;
+  }
+  .standalone{
+    display: flex;
+
+gap: 20px;
+justify-content: center;
+
+  .top-card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+ /* Center content horizontally */
+  }
+  h2{
+    font-size: 29px;
+    padding: 0 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    i{
+      margin-right: 10px;
+    }  
+  }
+  strong{
+    color:#2d9bcc ;
+    font-weight: 900;
+    font-size: 36px;
+    padding-left: 5px;
+  }
+  p{
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+    padding: 30px;
+  }
+  }
+  .top-card {
+    max-width: 100%;
+    width: 100%; /* Adjust as needed */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    background-image: url(/assets/opian-funeralrewards-card-side.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    align-items: center; /* Center content horizontally */
+    height: 450px; /* Ensure the card takes up full height if needed */
+    z-index: 2;
+  }
+  
+  // .card-grid {
+  //   display: grid;
+  //   grid-template-columns: repeat(3, 1fr); /* 2 cards per row */
+  //   gap: 45px; /* Space between cards */
+  // }
+  
+  // .card {
+   
+  //   background-color:  #ffffff ;
+
+  //   padding: 20px;
+  //   border-radius: 15px;
+
+  //   box-shadow:
+  //    0px -10px 18px -3px #008fcf,
+  //     0px 8px 20px 1px rgb(0 213 46);
+  //   transition: 0.3s ease-in-out;
+  //   text-align: center;
+  //   min-height: 320px; /* Set a consistent height */
+  // &:hover{
+  //   transform: translateY(-5px);
+  // box-shadow: 0px 10px 20px 2px rgba(0,255,255,0.7);
+  // }
+  // }
+  
+  // .package-name h3 {
+  //   font-size: 34px;
+  //   color: #2d9bcc;
+  //   font-weight: 900;
+  //   transition: opacity 0.3s ease-in-out;
+  // }
+  // h2{
+  //   font-size: 40px;
+  //   padding: 20px;
+  //   font-weight: 500;
+  //   strong{
+  //     color:#2d9bcc ;
+  //     font-weight: 900;
+  //     font-size: 50px;
+  //   }
+  // }
+  // .content {
+  //   visibility: hidden;
+  //   opacity: 0;
+  //   transition: opacity 0.3s ease-in-out;
+  //   padding: 10px 15px;
+  //   text-align: center;
+  // }
+  
+  // .card:hover .package-name {
+  //   opacity: 1;
+  //   visibility: visible;
+  // }
+  
+  // .card:hover .content {
+  //   visibility: visible;
+  //   opacity: 1;
+  //   transition-delay: 0.2s;
+  // }
+  
+  // .content ul {
+  //   list-style-type: circle;
+  //   padding: 0;
+  // }
+  
+  // .content ul li {
+  //   margin-bottom: 5px;
+  //   color: rgb(0, 0, 0);
+  // }
+
+  // h3{
+  //   color: white;
+  // }
+
+  // p{
+  //   color: rgb(0, 0, 0);
+  // }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 45px; /* Space between cards */
+  }
+  
+  .card {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px -10px 18px -3px #008fcf, 0px 8px 20px 1px rgb(0 213 46);
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    min-height: 320px; /* Set a consistent height */
+    overflow: hidden; /* Hide overflow to prevent content from spilling out */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url(/assets/nasa-Q1p7bh3SHj8-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px 2px rgba(0, 255, 255, 0.7);
+    background-color: #ffffff;
+background-image: none;
+  }
+  
+  .package-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the package name */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 1;
+  }
+  
+  .card:hover .package-name {
+    transform: translate(-50%, -100%); /* Move the package name up on hover */
+    visibility: hidden;
+  }
+  
+  .content {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+    padding: 10px 15px;
+    text-align: center;
+    flex-grow: 1; /* Ensure the content section takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .card:hover .content {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  
+  .content ul {
+    list-style-type: circle;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .content ul li {
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+  }
+  
+  h3 {
+    color: #2d9bcc;
+  }
+  
+  p {
+    color: rgb(0, 0, 0);
+  }
+  
+  .package-name h3 {
+    font-size: 34px;
+    color: #2d9bcc;
+    font-weight: 900;
+  }
+  
+  h2 {
+    font-size: 40px;
+    padding: 20px;
+    font-weight: 500;
+  }
+  
+  h2 strong {
+    color: #2d9bcc;
+    font-weight: 900;
+    font-size: 50px;
+  }
+  
+  button{
+    margin-top: 10px;
+    border: 1px solid #008fcf;
+font-family: 'Poppins';
+height: 30px;
+border-radius: 50px;
+background-color: white;
+
+&:hover{
+  cursor: pointer;
+  background-color: #008fcf;
+  color: white;
+}
+  }
