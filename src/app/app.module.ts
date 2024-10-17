@@ -8,7 +8,7 @@ import { PackageSelectionComponent } from './package-selection/package-selection
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
 import { LoaderComponent } from './loader/loader.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { LoaderComponent } from './loader/loader.component';
     LoaderComponent
   ],
   imports: [
+    FormsModule,   
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule

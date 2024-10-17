@@ -1,11 +1,11 @@
 <div class="form-container">
   <aside class="sidebar">
     <ul class="steps">
-      <li [class.active]="currentStep === 1">Step 1: Personal Info</li>
-      <li [class.active]="currentStep === 2">Step 2: Address</li>
-      <li [class.active]="currentStep === 3">Step 3: Contact Info</li>
-      <li [class.active]="currentStep === 4">Step 4: Payment Info</li>
-      <li [class.active]="currentStep === 5">Step 5: Review Details</li>
+      <li [class.active]="currentStep === 1">Member Details</li>
+      <li [class.active]="currentStep === 2">Spouse Details</li>
+      <li [class.active]="currentStep === 3">Employment Details</li>
+      <li [class.active]="currentStep === 4">Banking Details</li>
+      <li [class.active]="currentStep === 5">Affordability</li>
       <li [class.active]="currentStep === 6">Step 6: Submit Documents</li>
       <li [class.active]="currentStep === 7">Step 7: Confirm Submission</li>
       <li [class.active]="currentStep === 8">Step 8: Finish</li>
@@ -13,11 +13,123 @@
   </aside>
 
   <div class="form-content" [formGroup]="personalInfoForm">
+    <!-- Step 1: Personal Info -->
     <div *ngIf="currentStep === 1">
-      <!-- Step 1 Form Content -->
-      <h2>Step 1: Personal Info</h2>
+      <h2>Member Details</h2>
+      
+      <!-- Form fields -->
       <form>
-        <!-- Title -->
+        <div class="form-row">
+          <label>Title:</label>
+          <select formControlName="title">
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Dr">Dr</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Account Number:</label>
+          <input type="text" formControlName="accountNumber" readonly />
+        </div>
+      
+        <div class="form-row">
+          <label>First Name:</label>
+          <input type="text" formControlName="firstName" />
+        </div>
+        <div class="form-row">
+          <label>Middle Name:</label>
+          <input type="text" formControlName="middleName" />
+        </div>
+      
+        <div class="form-row">
+          <label>Last Name:</label>
+          <input type="text" formControlName="lastName" />
+        </div>
+        <div class="form-row">
+          <label>Nationality:</label>
+          <input type="text" formControlName="nationality" />
+        </div>
+      
+        <div class="form-row">
+          <label>Identification Number:</label>
+          <input type="text" formControlName="idNumber" />
+        </div>
+        <div class="form-row">
+          <label>Date of Birth:</label>
+          <input type="date" formControlName="dob" (change)="calculateAge()" />
+        </div>
+      
+        <div class="form-row">
+          <label>Age:</label>
+          <input type="number" formControlName="age" readonly />
+        </div>
+        <div class="form-row">
+          <label>Gender:</label>
+          <select formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      
+        <div class="form-row">
+          <label>Contact Number:</label>
+          <input type="tel" formControlName="contactNumber" />
+          <div class="checkbox-row">
+            <input type="checkbox" (change)="toggleWhatsApp()" /> Use as WhatsApp Number
+          </div>
+        </div>
+        <div class="form-row">
+          <label>WhatsApp Number:</label>
+          <input type="tel" formControlName="whatsappNumber" />
+        </div>
+      
+        <div class="form-row form-row-full">
+          <label>Email Address:</label>
+          <input type="email" formControlName="email" />
+        </div>
+      </form>
+      <!-- Physical Address -->
+      <div class="address-container">
+        <div class="address-section">
+          <h3>Physical Address</h3>
+          <div class="form-row">
+            <label>Physical Address:</label>
+            <input type="text" formControlName="physicalAddress" />
+          </div>
+          <div class="form-row">
+            <label>Suburb:</label>
+            <input type="text" formControlName="physicalSuburb" />
+          </div>
+          <div class="form-row">
+            <label>Postal Code:</label>
+            <input type="text" formControlName="physicalPostalCode" />
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" (change)="copyPhysicalAddress($event)" /> Use as Postal Address
+          </div>
+        </div>
+        <div class="address-section">
+          <h3>Postal Address</h3>
+          <div class="form-row">
+            <label>Postal Address:</label>
+            <input type="text" formControlName="postalAddress" />
+          </div>
+          <div class="form-row">
+            <label>Suburb:</label>
+            <input type="text" formControlName="postalSuburb" />
+          </div>
+          <div class="form-row">
+            <label>Postal Code:</label>
+            <input type="text" formControlName="postalPostalCode" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentStep === 2">
+      <h2>Spouse Details</h2>
+      <form>
         <div class="form-row">
           <label>Title:</label>
           <select formControlName="title">
@@ -28,51 +140,38 @@
           </select>
         </div>
 
-        <!-- Account Number (full width) -->
-        <div class="form-row">
-          <label>Account Number:</label>
-          <input type="text" formControlName="accountNumber" readonly />
-        </div>
-
-        <!-- First and Middle Name -->
+      
         <div class="form-row">
           <label>First Name:</label>
           <input type="text" formControlName="firstName" />
         </div>
-
-        <div class="form-row">
-          <label>Middle Name:</label>
-          <input type="text" formControlName="middleName" />
-        </div>
-
-        <!-- Last Name and Nationality -->
         <div class="form-row">
           <label>Last Name:</label>
+          <input type="text" formControlName="middleName" />
+        </div>
+      
+        <div class="form-row">
+          <label>Maiden Name:</label>
           <input type="text" formControlName="lastName" />
         </div>
-
         <div class="form-row">
           <label>Nationality:</label>
           <input type="text" formControlName="nationality" />
         </div>
-
-        <!-- Identification Number and Date of Birth -->
+      
         <div class="form-row">
           <label>Identification Number:</label>
           <input type="text" formControlName="idNumber" />
         </div>
-
         <div class="form-row">
           <label>Date of Birth:</label>
           <input type="date" formControlName="dob" (change)="calculateAge()" />
         </div>
-
-        <!-- Age and Gender -->
+      
         <div class="form-row">
           <label>Age:</label>
           <input type="number" formControlName="age" readonly />
         </div>
-
         <div class="form-row">
           <label>Gender:</label>
           <select formControlName="gender">
@@ -81,8 +180,10 @@
             <option value="Other">Other</option>
           </select>
         </div>
-
-        <!-- Contact Number, WhatsApp Number, and Email -->
+        <div class="form-row ">
+          <label>Email Address:</label>
+          <input type="email" formControlName="email" />
+        </div>
         <div class="form-row">
           <label>Contact Number:</label>
           <input type="tel" formControlName="contactNumber" />
@@ -90,39 +191,269 @@
             <input type="checkbox" (change)="toggleWhatsApp()" /> Use as WhatsApp Number
           </div>
         </div>
-
         <div class="form-row">
           <label>WhatsApp Number:</label>
           <input type="tel" formControlName="whatsappNumber" />
         </div>
-
-        <div class="form-row form-row-full">
-          <label>Email Address:</label>
-          <input type="email" formControlName="email" />
-        </div>
+      
+      
       </form>
     </div>
 
-    <!-- Add similar divs for Steps 2 through 8 -->
-    <div *ngIf="currentStep === 2">
-      <h2>Step 2: Address</h2>
+    <div *ngIf="currentStep === 3">
+      <h2>Employment Details</h2>
       <form>
-        <!-- Address form fields -->
-        <div class="form-row">
-          <label>Street Address:</label>
-          <input type="text" />
+        <div class="form-row ">
+          <label>Occupation:</label>
+          <input type="text" formControlName="occupation" />
         </div>
         <div class="form-row">
-          <label>City:</label>
-          <input type="text" />
+          <label>Employee:</label>
+          <input type="text" formControlName="employee" />
+        </div>
+      
+        <div class="form-row">
+          <label>Employee Address 1</label>
+          <input type="text" formControlName="employeeAddress" />
+        </div>
+        <div class="form-row">
+          <label>Employee Address 2</label>
+          <input type="text" formControlName="employeeAddress" />
+        </div>
+      
+        <div class="form-row">
+          <label>Suburb</label>
+          <input type="text" formControlName="idNumber" />
+        </div>
+        <div class="form-row">
+          <label>Postal Code</label>
+          <input type="text" formControlName="grossSalary" />
+        </div>
+      
+        <div class="form-row">
+          <label>Gross Salary</label>
+          <input type="text" formControlName="grossSalary" />
+        </div>
+        <div class="form-row">
+          <label>Salary Type</label>
+          <select formControlName="gender">
+            <option value="Male">Daily</option>
+            <option value="Female">Weekly</option>
+            <option value="Other">Monthly</option>
+          </select>
+        </div>
+      
+        <div class="form-row">
+          <label>Salary Date</label>
+          <input type="tel" formControlName="contactNumber" />
+        </div>
+    
+      </form>
+      <h2>Spouse Employment Details</h2>
+      <form>
+        <div class="form-row ">
+          <label>Occupation:</label>
+          <input type="text" formControlName="occupation" />
+        </div>
+        <div class="form-row">
+          <label>Employee:</label>
+          <input type="text" formControlName="employee" />
+        </div>
+      
+        <div class="form-row">
+          <label>Employee Address 1</label>
+          <input type="text" formControlName="employeeAddress" />
+        </div>
+        <div class="form-row">
+          <label>Employee Address 2</label>
+          <input type="text" formControlName="employeeAddress" />
+        </div>
+      
+        <div class="form-row">
+          <label>Suburb</label>
+          <input type="text" formControlName="idNumber" />
+        </div>
+        <div class="form-row">
+          <label>Postal Code</label>
+          <input type="text" formControlName="grossSalary" />
+        </div>
+      
+        <div class="form-row">
+          <label>Gross Salary</label>
+          <input type="text" formControlName="grossSalary" />
+        </div>
+        <div class="form-row">
+          <label>Salary Type</label>
+          <select formControlName="gender">
+            <option value="Male">Daily</option>
+            <option value="Female">Weekly</option>
+            <option value="Other">Monthly</option>
+          </select>
+        </div>
+      
+        <div class="form-row">
+          <label>Salary Date</label>
+          <input type="tel" formControlName="contactNumber" />
+        </div>
+    
+      </form>
+    </div>
+
+    <div *ngIf="currentStep === 4">
+      <h2>Banking Details</h2>
+      <form>
+        <div class="form-row">
+          <label>Account Holder:</label>
+          <input type="text" formControlName="accountHolder" />
+        </div>
+    
+        <div class="form-row">
+          <label>Bank/Institution:</label>
+          <select formControlName="bankInstitution" (change)="onBankChange($event)">
+            <option value="Absa Bank Limited">Absa Bank Limited</option>
+            <option value="African Bank Limited">African Bank Limited</option>
+            <option value="Capitec Bank Limited">Capitec Bank Limited</option>
+            <option value="Discovery Bank Limited">Discovery Bank Limited</option>
+            <option value="First National Bank (FNB)">First National Bank (FNB)</option>
+            <option value="FirstRand Bank">FirstRand Bank - A subsidiary of First Rand Limited</option>
+            <option value="Grindrod Bank Limited">Grindrod Bank Limited</option>
+            <option value="Investec Bank Limited">Investec Bank Limited</option>
+            <option value="Merchantile Bank Limited">Merchantile Bank Limited</option>
+            <option value="Nedbank Limited">Nedbank Limited</option>
+            <option value="Old Mutual">Old Mutual</option>
+            <option value="OraclePay">OraclePay</option>
+            <option value="Sasfin Bank Limited">Sasfin Bank Limited</option>
+            <option value="Standard Bank of South Africa">Standard Bank of South Africa</option>
+            <option value="SA Post Bank (Post Office)">SA Post Bank (Post Office)</option>
+            <option value="Tyme Bank">Tyme Bank</option>
+          </select>
+        </div>
+    
+        <div class="form-row">
+          <label>Account Number:</label>
+          <input type="text" formControlName="account" />
+        </div>
+    
+        <div class="form-row">
+          <label>Branch Code:</label>
+          <input type="text" formControlName="branchCode" />
+        </div>
+    
+        <div class="form-row">
+          <label>Account Type:</label>
+          <select formControlName="accountType">
+            <option value="Savings">Savings</option>
+            <option value="Current">Cheque</option>
+            <option value="Business">Transmission</option>
+            <option value="Business">Trust</option>
+          </select>
         </div>
       </form>
     </div>
 
-    <!-- Add buttons to navigate between steps -->
+    <div *ngIf="currentStep === 5">
+      <h2>Affordability Details</h2>
+      <form>
+        <!-- Rent Expense -->
+        <div class="form-row">
+          <label>Rent:</label>
+          <input type="number" formControlName="rent" (input)="calculateTotalExpenses()" />
+        </div>
+    
+        <!-- Utilities Expense -->
+        <div class="form-row">
+          <label>Utilities (Water, Electricity, etc.):</label>
+          <input type="number" formControlName="utilities" (input)="calculateTotalExpenses()" />
+        </div>
+    
+        <!-- Groceries Expense -->
+        <div class="form-row">
+          <label>Groceries:</label>
+          <input type="number" formControlName="groceries" (input)="calculateTotalExpenses()" />
+        </div>
+    
+        <!-- Transportation Expense -->
+        <div class="form-row">
+          <label>Transportation:</label>
+          <input type="number" formControlName="transportation" (input)="calculateTotalExpenses()" />
+        </div>
+    
+        <!-- Other Expenses -->
+        <div class="form-row">
+          <label>Other Expenses:</label>
+          <input type="number" formControlName="otherExpenses" (input)="calculateTotalExpenses()" />
+        </div>
+    
+        <!-- Total Expense (Auto-calculated) -->
+        <div class="form-row">
+          <label>Total Expenses:</label>
+          <input type="number" formControlName="totalExpenses" readonly />
+        </div>
+      </form>
+    </div>
+ <!-- Step 6: Submit Documents -->
+<div *ngIf="currentStep === 6">
+  <h2>Submit Documents</h2>
+  
+  <!-- Table for Document Submission -->
+  <table>
+    <thead>
+      <tr>
+        <th>Select</th>
+        <th>Static Data 1</th>
+        <th>Static Data 2</th>
+        <th>Static Data 3</th>
+        <th>Static Data 4</th>
+        <th>Static Data 5</th>
+        <th>Static Data 6</th>
+        <th>Static Data 7</th>
+        <th>Checkbox 1</th>
+        <th>Checkbox 2</th>
+        <th>Checkbox 3</th>
+        <th>Checkbox 4</th>
+        <th>Checkbox 5</th>
+        <th>Checkbox 6</th>
+        <th>Checkbox 7</th>
+        <th>Checkbox 8</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableRows; let i = index">
+        <td>
+          <input type="checkbox" 
+                 [(ngModel)]="row.isSelected" 
+                 (change)="selectRow(i)" />  <!-- Ensure this matches your method -->
+        </td>
+        <td>{{ row.static1 }}</td>
+        <td>{{ row.static2 }}</td>
+        <td>{{ row.static3 }}</td>
+        <td>{{ row.static4 }}</td>
+        <td>{{ row.static5 }}</td>
+        <td>{{ row.static6 }}</td>
+        <td>{{ row.static7 }}</td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox1" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox2" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox3" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox4" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox5" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox6" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox7" /></td>
+        <td><input type="checkbox" [(ngModel)]="row.checkbox8" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    
+    
+    <!-- Additional Steps Placeholder -->
+    <!-- Repeat similar structure for Steps 3 to 8 -->
+
+    <!-- Form Navigation -->
     <div class="form-navigation">
       <button (click)="previousStep()" [disabled]="currentStep === 1">Previous</button>
       <button (click)="nextStep()" [disabled]="currentStep === totalSteps">Next</button>
     </div>
   </div>
 </div>
+<div>
