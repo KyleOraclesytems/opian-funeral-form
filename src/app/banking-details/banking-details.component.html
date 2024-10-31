@@ -1,0 +1,49 @@
+<h2>Banking Details</h2>
+      <form [formGroup]="formGroup">
+        <div class="form-row">
+          <label>Account Holder:</label>
+          <input type="text" formControlName="accountHolder" />
+        </div>
+    
+        <div class="form-row">
+          <label>Bank/Institution:</label>
+          <select formControlName="bankInstitution" (change)="onBankChange($event)">
+            <option value="Absa Bank Limited">Absa Bank Limited</option>
+            <option value="African Bank Limited">African Bank Limited</option>
+            <option value="Capitec Bank Limited">Capitec Bank Limited</option>
+            <option value="Discovery Bank Limited">Discovery Bank Limited</option>
+            <option value="First National Bank (FNB)">First National Bank (FNB)</option>
+            <option value="FirstRand Bank">FirstRand Bank - A subsidiary of First Rand Limited</option>
+            <option value="Grindrod Bank Limited">Grindrod Bank Limited</option>
+            <option value="Investec Bank Limited">Investec Bank Limited</option>
+            <option value="Merchantile Bank Limited">Merchantile Bank Limited</option>
+            <option value="Nedbank Limited">Nedbank Limited</option>
+            <option value="Old Mutual">Old Mutual</option>
+            <option value="OraclePay">OraclePay</option>
+            <option value="Sasfin Bank Limited">Sasfin Bank Limited</option>
+            <option value="Standard Bank of South Africa">Standard Bank of South Africa</option>
+            <option value="SA Post Bank (Post Office)">SA Post Bank (Post Office)</option>
+            <option value="Tyme Bank">Tyme Bank</option>
+          </select>
+        </div>
+    
+        <div class="form-row">
+          <label>Account Number:</label>
+          <input type="text" formControlName="account" />
+        </div>
+    
+        <div class="form-row">
+          <label>Branch Code:</label>
+          <input type="text" formControlName="branchCode" />
+        </div>
+    
+        <div class="form-row">
+          <label>Account Type:</label>
+          <select formControlName="accountType">
+            <option value="Savings">Savings</option>
+            <option value="Current">Cheque</option>
+            <option value="Business">Transmission</option>
+            <option value="Business">Trust</option>
+          </select>
+        </div>
+      </form>

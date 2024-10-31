@@ -1,0 +1,70 @@
+<h2>Spouse Details</h2>
+<form [formGroup]="spouseForm">
+  <div class="form-row">
+    <label>Title:</label>
+    <select formControlName="title">
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Dr">Dr</option>
+    </select>
+  </div>
+
+
+  <div class="form-row">
+    <label>First Name:</label>
+    <input type="text" formControlName="firstName" />
+  </div>
+  <div class="form-row">
+    <label>Last Name:</label>
+    <input type="text" formControlName="middleName" />
+  </div>
+
+  <div class="form-row">
+    <label>Maiden Name:</label>
+    <input type="text" formControlName="lastName" />
+  </div>
+  <div class="form-row">
+    <label>Nationality:</label>
+    <input type="text" formControlName="nationality" />
+  </div>
+
+  <div class="form-row">
+    <label>Identification Number:</label>
+    <input type="text" formControlName="idNumber" />
+  </div>
+  <div class="form-row">
+    <label>Date of Birth:</label>
+    <input type="date" formControlName="dob" (change)="calculateAge()" />
+  </div>
+
+  <div class="form-row">
+    <label>Age:</label>
+    <input type="number" formControlName="age" readonly />
+  </div>
+  <div class="form-row">
+    <label>Gender:</label>
+    <select formControlName="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="form-row ">
+    <label>Email Address:</label>
+    <input type="email" formControlName="email" />
+  </div>
+  <div class="form-row">
+    <label>Contact Number:</label>
+    <input type="tel" formControlName="contactNumber" />
+    <div class="checkbox-row">
+      <input type="checkbox" (change)="toggleWhatsApp()" /> Use as WhatsApp Number
+    </div>
+  </div>
+  <div class="form-row">
+    <label>WhatsApp Number:</label>
+    <input type="tel" formControlName="whatsappNumber" />
+  </div>
+
+
+</form>

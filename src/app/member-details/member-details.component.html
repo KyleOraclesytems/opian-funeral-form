@@ -1,0 +1,104 @@
+<div [formGroup]="memberForm">
+  <h2>Member Details</h2>
+  <div class="form-row">
+    <label>Title:</label>
+    <select formControlName="title">
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Dr">Dr</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label>Account Number:</label>
+    <input type="text" formControlName="accountNumber" readonly />
+  </div>
+  <div class="form-row">
+    <label>First Name:</label>
+    <input type="text" formControlName="firstName" />
+  </div>
+  <div class="form-row">
+    <label>Middle Name:</label>
+    <input type="text" formControlName="middleName" />
+  </div>
+  <div class="form-row">
+    <label>Last Name:</label>
+    <input type="text" formControlName="lastName" />
+  </div>
+  <div class="form-row">
+    <label>Nationality:</label>
+    <input type="text" formControlName="nationality" />
+  </div>
+  <div class="form-row">
+    <label>Identification Number:</label>
+    <input type="text" formControlName="idNumber" />
+  </div>
+  <div class="form-row">
+    <label>Date of Birth:</label>
+    <input type="date" formControlName="dob" (change)="calculateAge()" />
+  </div>
+  <div class="form-row">
+    <label>Age:</label>
+    <input type="number" formControlName="age" readonly />
+  </div>
+  <div class="form-row">
+    <label>Gender:</label>
+    <select formControlName="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label>Contact Number:</label>
+    <input type="tel" formControlName="contactNumber" />
+    <div class="checkbox-row">
+      <input type="checkbox" (change)="toggleWhatsApp($event)" /> Use as WhatsApp Number
+    </div>
+  </div>
+  <div class="form-row">
+    <label>WhatsApp Number:</label>
+    <input type="tel" formControlName="whatsappNumber" />
+  </div>
+  <div class="form-row form-row-full">
+    <label>Email Address:</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <!-- Physical Address -->
+  <div class="address-container">
+    <div class="address-section">
+      <h3>Physical Address</h3>
+      <div class="form-row">
+        <label>Physical Address:</label>
+        <input type="text" formControlName="physicalAddress" />
+      </div>
+      <div class="form-row">
+        <label>Suburb:</label>
+        <input type="text" formControlName="physicalSuburb" />
+      </div>
+      <div class="form-row">
+        <label>Postal Code:</label>
+        <input type="text" formControlName="physicalPostalCode" />
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" (change)="copyPhysicalAddress($event)" /> Use as Postal Address
+      </div>
+    </div>
+    <div class="address-section">
+      <h3>Postal Address</h3>
+      <div class="form-row">
+        <label>Postal Address:</label>
+        <input type="text" formControlName="postalAddress" />
+      </div>
+      <div class="form-row">
+        <label>Suburb:</label>
+        <input type="text" formControlName="postalSuburb" />
+      </div>
+      <div class="form-row">
+        <label>Postal Code:</label>
+        <input type="text" formControlName="postalPostalCode" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<h2>Submit Documents</h2>
+
+<!-- Table for Document Submission -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Select</th>
+      <th>Funeral Packages</th>
+      <th>Member</th>
+      <th>Spouse</th>
+      <th>Child [13-20]</th>
+      <th>Child [6-12]</th>
+      <th>Child [0-5]</th>
+      <th>Banking Services</th>
+      <th>Rewards</th>
+      <th>Upgradable</th>
+      <th>Salary Benefit</th>
+      <th>Opt Parent Cover</th>
+      <th>Opt Extended Cover</th>
+      <th>Limo Hearse [Optional]</th>
+      <th>Family Cars [Optional]</th>
+      <th>Tombstone [Optional]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let package of packages" [class.disabled]="isAnyOtherRowSelected(package)">
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.selected" 
+               (change)="onSelect(package)" />
+      </td>
+      <td>{{ package.name }}</td>
+      <td>{{ package.member }}</td>
+      <td>Incl</td>
+      <td>Incl</td>
+      <td>Incl</td>
+      <td>Incl</td>
+      <td>Incl</td>
+      <td>Incl</td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.upgradable" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+      <td>{{ package.salaryBenefit }}</td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.optParentCover" 
+               (change)="updatePrice()" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.optExtendedCover" 
+               (change)="updatePrice()" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.limoHearse" 
+               (change)="updatePrice()" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.familyCars" 
+               (change)="updatePrice()" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+      <td>
+        <input type="checkbox" 
+               [(ngModel)]="package.tombstone" 
+               (change)="updatePrice()" 
+               [disabled]="isAnyOtherRowSelected(package)" />
+      </td>
+    </tr>
+</tbody>
+
+</table>
+
+<!-- Display member details and selected package below when a package is selected -->
+<div [formGroup]="package" *ngIf="selectedPackage">
+  <h3>Selected Package: {{ selectedPackage.name }} (R{{ selectedPackage.price }})</h3>
+
+  <div class="member-details">
+    <table class="table borderless">
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td>{{ memberForm.get('firstName')?.value }} {{ memberForm.get('lastName')?.value }}</td>
+      </tr>
+      <tr>
+        <td><strong>ID Number:</strong></td>
+        <td>{{ memberForm.get('idNumber')?.value }}</td>
+      </tr>
+      <tr>
+        <td><strong>Age:</strong></td>
+        <td>{{ memberForm.get('age')?.value }}</td>
+      </tr>
+      <tr>
+        <td><strong>Date of Birth:</strong></td>
+        <td>{{ memberForm.get('dob')?.value }}</td>
+      </tr>
+      <tr>
+        <td><strong>Package Price:</strong></td>
+        <td>R{{ selectedPackage.price }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<div [formGroup]="spouseForm">
+    <h2>Spouse Details</h2>
+    <!-- Display member details -->
+    <div class="member-summary">
+      <h3>Member Summary</h3>
+      <p>First Name: {{ memberForm.get('firstName')?.value }}</p>
+      <p>Last Name: {{ memberForm.get('lastName')?.value }}</p>
+      <p>Age: {{ memberForm.get('age')?.value }}</p>
+    </div>
+    <label>Spouse Name:</label>
+    <input formControlName="spouseName" />
+    <label>Spouse Age:</label>
+    <input type="number" formControlName="spouseAge" />
+  </div>
+  

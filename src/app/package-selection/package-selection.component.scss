@@ -231,6 +231,9 @@ background-image: none;
     transform: translate(-50%, -50%); /* Center the package name */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1;
+p{
+  color: white;
+}
   }
   
   .card:hover .package-name {
@@ -273,7 +276,7 @@ background-image: none;
   }
   
   p {
-    color: rgb(0, 0, 0);
+    color: rgb(161, 161, 161);
   }
   
   .package-name h3 {
